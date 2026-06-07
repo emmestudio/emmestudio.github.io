@@ -552,3 +552,136 @@ footer .socials.icons .social-btn img{
 @media (max-width:640px){
   .vc-arrow{ width:40px; height:40px; }
 }
+.talent-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.62);
+  backdrop-filter:blur(10px);
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  opacity:0;
+  pointer-events:none;
+  transition:.35s ease;
+}
+
+.talent-popup.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.talent-popup-card{
+  width:min(94vw,720px);
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.98),rgba(245,245,245,.96));
+  border:1px solid var(--ring);
+  border-radius:28px;
+  padding:42px 34px;
+  text-align:center;
+  position:relative;
+  box-shadow:0 28px 90px rgba(0,0,0,.35);
+  animation:talentPop .55s ease both;
+  overflow:hidden;
+}
+
+.talent-popup-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,122,0,.22), transparent 28%),
+    radial-gradient(circle at 80% 90%, rgba(0,0,0,.08), transparent 30%);
+  pointer-events:none;
+}
+
+.talent-popup-card > *{
+  position:relative;
+  z-index:1;
+}
+
+.talent-popup-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:0;
+  background:#111;
+  color:#fff;
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.talent-badge{
+  display:inline-flex;
+  padding:7px 12px;
+  border-radius:999px;
+  background:#111;
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+
+.talent-popup-card h2{
+  font-size:clamp(32px,5vw,54px);
+  line-height:1;
+  margin:18px 0 14px;
+}
+
+.talent-popup-card p{
+  max-width:620px;
+  margin:0 auto 24px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.55;
+}
+
+.talent-popup-list{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin:24px 0 28px;
+}
+
+.talent-popup-list span{
+  padding:9px 12px;
+  border:1px solid var(--ring);
+  border-radius:999px;
+  background:#fff;
+  font-weight:700;
+  font-size:14px;
+}
+
+.talent-popup-actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+@keyframes talentPop{
+  from{
+    opacity:0;
+    transform:translateY(24px) scale(.96);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+@media(max-width:640px){
+  .talent-popup-card{
+    padding:34px 22px;
+  }
+
+  .talent-popup-actions a{
+    width:100%;
+  }
+}
