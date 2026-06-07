@@ -204,6 +204,70 @@
     </div>
   </div>
 </footer>
+  <div id="talent-popup" class="talent-popup">
+  <div class="talent-popup-card">
+
+    <button class="talent-popup-close" id="talent-popup-close" type="button">
+      ×
+    </button>
+
+    <span class="talent-badge">EMME STUDIO TALENT PROJECT</span>
+
+    <h2>Dalla demo alla pubblicazione</h2>
+
+    <p>
+      Stiamo cercando un artista da produrre.
+      Inviaci una demo, un provino o un’idea originale:
+      selezioneremo un progetto da sviluppare insieme al nostro team.
+    </p>
+
+    <div class="talent-popup-list">
+      <span>Produzione artistica</span>
+      <span>Recording</span>
+      <span>Mix & Mastering</span>
+      <span>Artwork</span>
+      <span>Distribuzione digitale</span>
+    </div>
+
+    <div class="talent-popup-actions">
+      <a class="btn" href="mailto:emmestudio.mixinfo@gmail.com?subject=Candidatura%20Talent%20Project">
+        Candidati via email
+      </a>
+
+      <a class="btn-outline" href="https://www.instagram.com/emmestudio_recording" target="_blank" rel="noopener">
+        Scrivici su Instagram
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const popup = document.getElementById('talent-popup');
+  const close = document.getElementById('talent-popup-close');
+
+  if(!popup || !close) return;
+
+  if(localStorage.getItem('talentPopupClosed')){
+    popup.style.display = 'none';
+    return;
+  }
+
+  setTimeout(function(){
+    popup.classList.add('show');
+  }, 900);
+
+  close.addEventListener('click', function(){
+    popup.classList.remove('show');
+    localStorage.setItem('talentPopupClosed', 'true');
+
+    setTimeout(function(){
+      popup.style.display = 'none';
+    }, 300);
+  });
+})();
+</script>
   <script>
 (function(){
   document.querySelectorAll('header[data-nav="v2"]').forEach(function(h){
