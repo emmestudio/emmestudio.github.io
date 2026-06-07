@@ -685,3 +685,14 @@ footer .socials.icons .social-btn img{
     width:100%;
   }
 }
+.talent-section{
+  text-align:center;
+}
+
+.talent-section .intro{
+  margin-top:16px;
+}
+
+.talent-section .services-grid{
+  margin-top:34px;
+}
